@@ -9,7 +9,7 @@ public interface StudentMapper {
     Student getStudentById(String id);
     List<Student> getStudents();
     List<Student> getStudentsByPage(Map map);
-    int insertStudent(Student student);
-    int updateStudent(Student student);
-    int deleteStudentById(String id);
+    Integer insertStudent(Student student);
+    Integer updateStudent(Student student);
+    Integer deleteStudentById(String id);
 }

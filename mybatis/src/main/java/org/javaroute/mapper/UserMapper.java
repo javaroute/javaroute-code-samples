@@ -9,7 +9,7 @@ public interface UserMapper {
     User selectUserById(Integer id);
     List<User> selectUsers();
     List<User> selectUsersByPage(Map map);
-    int insertUser(User user);
-    int updateUser(User user);
-    int deleteUserById(Integer id);
+    Integer insertUser(User user);
+    Integer updateUser(User user);
+    Integer deleteUserById(Integer id);
 }
