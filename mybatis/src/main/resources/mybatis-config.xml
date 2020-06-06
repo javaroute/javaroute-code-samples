@@ -20,8 +20,10 @@
         </environment>
     </environments>
     <mappers>
-
+        <!--
         <mapper resource="org/javaroute/mapper/UserMapper.xml"/>
         <mapper resource="org/javaroute/mapper/StudentMapper.xml"/>
+        -->
+        <package name="org.javaroute.mapper"/>
     </mappers>
 </configuration>
