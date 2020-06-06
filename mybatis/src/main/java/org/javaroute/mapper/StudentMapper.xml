@@ -5,13 +5,13 @@
 <mapper namespace="org.javaroute.mapper.StudentMapper">
 
 
-    <select id="getStudentByid" resultType="org.javaroute.model.Student">
+    <select id="getStudentByid" resultType="student">
         select * from student where id=#{id};
     </select>
-    <select id="getStudents" resultType="org.javaroute.model.Student">
+    <select id="getStudents" resultType="student">
               select * from student;
     </select>
-    <insert id="insertStudent" parameterType="org.javaroute.model.Student">
+    <insert id="insertStudent" parameterType="student">
         <selectKey resultType="java.lang.String"  keyProperty="id" order="BEFORE">
                select uuid();
         </selectKey>

@@ -4,15 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.javaroute.mapper.UserMapper">
       <!--通过ID获取用户-->
-      <select id="getUserById" resultType="org.javaroute.model.User">
+      <select id="getUserById" resultType="user">
           select * from user where id=#{id};
       </select>
       <!--获取全部用户-->
-      <select id="getUsers"   resultType="org.javaroute.model.User">
+      <select id="getUsers"   resultType="user">
            select * from user;
       </select>
       <!--分页查询 获取用户-->
-       <select id="getUsersByPage"  resultType="org.javaroute.model.User">
+       <select id="getUsersByPage"  resultType="user">
            select * from user  limit #{m},#{n};
        </select>
       <!--新增用户-->
