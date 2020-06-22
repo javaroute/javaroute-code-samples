@@ -1,3 +1,5 @@
+package org.javaroute.mapper;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.javaroute.model.User;
@@ -8,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CrudTest {
+public class UserMapperTest {
 
     @Test
     public void testSelect(){
@@ -85,7 +87,7 @@ public class CrudTest {
     }
     @Test
     public void testDelete(){
-        SqlSessionFactory sqlSessionFactory=SqlSessionFactoryUtils.getInstance();
+        SqlSessionFactory sqlSessionFactory= SqlSessionFactoryUtils.getInstance();
         SqlSession sqlSession=sqlSessionFactory.openSession();
 
         int rows=sqlSession.delete("org.javaroute.mapper.UserMapper.deleteUserById",3);
@@ -95,3 +97,4 @@ public class CrudTest {
         sqlSession.close();
     }
 }
+

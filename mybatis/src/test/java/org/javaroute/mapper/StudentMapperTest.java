@@ -1,8 +1,8 @@
+package org.javaroute.mapper;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.javaroute.mapper.StudentMapper;
 import org.javaroute.model.Student;
-import org.javaroute.model.User;
 import org.javaroute.util.SqlSessionFactoryUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StudentTest {
+import static org.junit.Assert.*;
+
+public class StudentMapperTest {
     SqlSessionFactory sqlSessionFactory=null;
     @Before
     public void setUp() throws Exception {

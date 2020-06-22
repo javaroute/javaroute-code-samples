@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javaroute.mapper.AuthorMapper">
+    <select id="getAuthorById" parameterType="java.lang.Integer" resultType="author">
+         select * from author where id=#{id}
+    </select>
+    <select id="getAllAuthor" resultType="author">
+        select * from author;
+    </select>
+    <insert id="insertAuthor" parameterType="author">
+        insert into author (name,age) values (#{name},#{age});
+    </insert>
+    <update id="updateAuthor" parameterType="author">
+         update author set name=#{name},age=#{age} where id=#{id};
+    </update>
+    <delete id="deleteAuthorById" parameterType="java.lang.Integer">
+        delete from author where id=#{id};
+    </delete>
+</mapper>
