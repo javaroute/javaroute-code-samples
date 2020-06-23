@@ -7,6 +7,7 @@ import org.javaroute.util.SqlSessionFactoryUtils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,9 +74,9 @@ public class StudentMapperTest {
     public void testUpdateStudent() {
         SqlSession sqlSession=sqlSessionFactory.openSession();
         Student student=new Student();
-        student.setId("e535195b-a7af-11ea-bbd5-0242ac110002");
-        student.setName("赵小豪");
-        student.setAge(29);
+        student.setId("8206e689-a7bc-11ea-bbd5-0242ac110002");
+        student.setName("");
+        student.setAge(45);
         StudentMapper mapper=sqlSession.getMapper(StudentMapper.class);
         int rows=mapper.updateStudent(student);
         System.out.println("rows = " + rows);
@@ -102,4 +103,36 @@ public class StudentMapperTest {
         List<Student> students = mapper.searchStudent(map);
         System.out.println(students.toString());
     }
+
+    @Test
+    public void testInsertStudentBatch() {
+        SqlSession sqlSession=sqlSessionFactory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<Student> students=new ArrayList<Student>();
+        for (int i = 4; i <6 ; i++) {
+            Student student=new Student();
+            student.setId("9999"+i);
+            student.setName("i"+i);
+            student.setAge(30+i);
+            students.add(student);
+        }
+        Integer row = mapper.insertStudentBatch(students);
+        System.out.println("row = " + row);
+        sqlSession.commit();
+
+    }
+
+    @Test
+    public void getStudentsByIds() {
+        SqlSession sqlSession=sqlSessionFactory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        Integer[] ids =new Integer[3];
+        ids[0]=99990;
+        ids[1]=99991;
+        ids[2]=99992;
+        List<Student> students = mapper.getStudentsByIds(ids);
+        System.out.println(students);
+
+    }
 }
+
