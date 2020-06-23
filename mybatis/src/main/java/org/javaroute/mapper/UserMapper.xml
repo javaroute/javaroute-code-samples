@@ -3,9 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.javaroute.mapper.UserMapper">
+     <resultMap id="userWithRole" type="org.javaroute.model.User">
+         <id column="id" property="id"/>
+         <result column="username" property="username"/>
+         <result column="password" property="password"/>
+         <collection property="roles"  ofType="org.javaroute.model.Role">
+             <id column="roleId"  property="id"/>
+             <result column="name" property="name"/>
+             <result column="nameZh" property="nameZh"/>
+         </collection>
+     </resultMap>
       <!--通过ID获取用户-->
-      <select id="getUserById" resultType="user">
-          select * from user where id=#{id};
+      <select id="getUserById" resultMap="userWithRole" parameterType="java.lang.Integer">
+          SELECT
+                a.id,
+                a.username,
+                a.`password`,
+                c.id as roleId,
+                c.`name`,
+                c.nameZh
+            FROM
+                user a
+            LEFT JOIN user_role b ON b.uid = a.id
+            LEFT JOIN role c ON c.id = b.rid
+            WHERE a.id = #{id};
       </select>
       <!--获取全部用户-->
       <select id="getUsers"   resultType="user">

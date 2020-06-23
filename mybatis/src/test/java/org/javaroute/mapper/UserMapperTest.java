@@ -19,7 +19,8 @@ public class UserMapperTest {
         //获取sqlSession
         SqlSession sqlSession=sqlSessionFactory.openSession();
         //执行
-        User user=sqlSession.selectOne("org.javaroute.mapper.UserMapper.getUserById","1");
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user= mapper.getUserById(1);
         System.out.println(user.toString());
         //关闭
         sqlSession.close();

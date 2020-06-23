@@ -1,9 +1,12 @@
 package org.javaroute.model;
 
+import java.util.List;
+
 public class User {
     private Integer id;
     private String username;
     private String password;
+    List<Role> roles;
 
     public Integer getId() {
         return id;
@@ -36,6 +39,14 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public User() {
