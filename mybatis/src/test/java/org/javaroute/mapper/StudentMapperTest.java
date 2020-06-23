@@ -24,8 +24,9 @@ public class StudentMapperTest {
     public void testSelect(){
         SqlSession sqlSession=sqlSessionFactory.openSession();
         StudentMapper mapper=sqlSession.getMapper(StudentMapper.class);
-        String id="e535195b-a7af-11ea-bbd5-0242ac110002";
+        String id="8206e689-a7bc-11ea-bbd5-0242ac110002";
         Student student=mapper.getStudentById(id);
+        Student student2=mapper.getStudentById(id);
         System.out.println(student.toString());
     }
 
@@ -89,5 +90,16 @@ public class StudentMapperTest {
         int rows=mapper.deleteStudentById(id);
         System.out.println("rows = " + rows);
         sqlSession.commit();
+    }
+
+    @Test
+    public void testSearchStudent() {
+        SqlSession sqlSession=sqlSessionFactory.openSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("name","豪");
+        map.put("age",null);
+        List<Student> students = mapper.searchStudent(map);
+        System.out.println(students.toString());
     }
 }

@@ -11,6 +11,17 @@
     <select id="getStudents" resultType="student">
               select * from student;
     </select>
+    <select id="searchStudent" resultType="student"  parameterType="map">
+              select * from student
+              <where>
+                  <if test="name!=null">
+                        and name like concat ('%',${name},'%')
+                  </if>
+                  <if test="age!=null">
+                      and age =#{age}
+                  </if>
+              </where>
+    </select>
     <select id="getStudentsByPage" resultType="student">
           select * from student limit #{m},#{n};
     </select>

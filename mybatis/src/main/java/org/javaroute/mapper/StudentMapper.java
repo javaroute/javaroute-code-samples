@@ -7,6 +7,7 @@ import java.util.Map;
 
 public interface StudentMapper {
     Student getStudentById(String id);
+    List<Student> searchStudent(Map map);
     List<Student> getStudents();
     List<Student> getStudentsByPage(Map map);
     Integer insertStudent(Student student);
