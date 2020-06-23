@@ -3,9 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.javaroute.mapper.BookMapper">
-    <resultMap id="bookWithAuthor" type="org.javaroute.model.Book">
-           <id column="id" property="id"/>
-           <result column="name" property="name"/>
+    <resultMap id="baseResultMap" type="org.javaroute.model.Book">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <resultMap id="bookWithAuthor" type="org.javaroute.model.Book" extends="baseResultMap">
+
            <association property="author" javaType="org.javaroute.model.Author">
                <id column="author_id" property="id"/>
                <result column="author_age" property="age"/>
