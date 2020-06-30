@@ -38,6 +38,13 @@
 
             </exclusions>
         </dependency>
+        <!--解决使用@ConfigurationProperties 注解出现警告问题-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
