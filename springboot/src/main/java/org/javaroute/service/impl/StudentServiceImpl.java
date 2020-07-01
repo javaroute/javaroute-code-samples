@@ -5,6 +5,7 @@ import org.javaroute.model.Student;
 import org.javaroute.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -24,8 +25,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public void insertStudent(Student student) {
         studentMapper.insertStudent(student);
+       int i=0;
     }
 
     @Override
