@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>hello ${name}!</h1>
+<h1>Hello springMVC!</h1>
 </body>
 </html>
